@@ -75,6 +75,8 @@ namespace Vintagestory.GameContent
             base.Initialize(api);
 
             inv.LateInitialize("forge-" + Pos, api);
+            inv.OnGetAutoPullFromSlot = GetAutoPullFromSlot;
+            inv.OnGetAutoPushIntoSlot = GetAutoPushIntoSlot;
 
             if (api is ICoreClientAPI)
             {
@@ -356,6 +358,15 @@ namespace Vintagestory.GameContent
             return false;
         }
 
+        private static ItemSlot? GetAutoPullFromSlot(BlockFacing atBlockFace)
+        {
+            return null;
+        }
+
+        private ItemSlot? GetAutoPushIntoSlot(BlockFacing atBlockFace, ItemSlot fromSlot)
+        {
+            return null;
+        }
 
         public override void OnBlockRemoved()
         {
